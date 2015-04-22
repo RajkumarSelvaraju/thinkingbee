@@ -1,0 +1,32 @@
+<div class="form-group">
+	<label class="control-label">Price Book Subject</label>
+	<%= f.text_field :name, class: "form-control" %>
+	<% if book.errors[:name].present? %>
+    	<div class="error-message"><%=  book.errors[:name][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Owner</label>
+	<%= f.collection_select :owner, User.all, :id, :email, {prompt: true}, class: "form-control" %>
+	<% if book.errors[:owner].present? %>
+    	<div class="error-message"><%=  book.errors[:owner][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Pricing Status</label>
+	<%= f.collection_select :pricing_status_id, PricingStatus.all, :id, :name, {prompt: true} , class: "form-control" %>
+	<% if book.errors[:pricing_status_id].present? %>
+    	<div class="error-message"><%=  book.errors[:pricing_status_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Pricing Status</label>
+	<%= f.collection_select :pricing_model_id, PricingModel.all, :id, :name, {prompt: true}, class: "form-control" %>
+	<% if book.errors[:pricing_model_id].present? %>
+    	<div class="error-message"><%=  book.errors[:pricing_model_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<%= f.submit "Save", class: "btn btn-warning" %>
+	<%= link_to "Back", price_books_path , class: "btn btn-primary" %>
+</div>

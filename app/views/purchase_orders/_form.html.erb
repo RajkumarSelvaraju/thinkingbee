@@ -1,0 +1,95 @@
+<div class="form-group">
+	<label class="control-label">PO Name</label>
+	<%= f.text_field :name, class: "form-control" %>
+	<% if order.errors[:name].present? %>
+    	<div class="error-message"><%=  order.errors[:name][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	 <label class="control-label">PO Date</label>
+	 <%= f.date_select :po_date, class: "form-control", prompt: true %>
+	 <% if order.errors[:po_date].present? %>
+    	<div class="error-message"><%=  order.errors[:po_date][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	 <label class="control-label">Due Date</label>
+	 <%= f.date_select :due_date, class: "form-control", prompt: true %>
+	 <% if order.errors[:due_date].present? %>
+    	<div class="error-message"><%=  order.errors[:due_date][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	 <label class="control-label">PO Number</label>
+	 <%= f.text_field :po_no, class: "form-control" %>
+	 <% if order.errors[:po_no].present? %>
+    	<div class="error-message"><%=  order.errors[:po_no][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Owner</label>
+	<%= f.collection_select :owner, User.all, :id, :email, {}, class: "form-control" %>
+	<% if order.errors[:owner].present? %>
+    	<div class="error-message"><%=  order.errors[:owner][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label"> PO Status</label>
+	<%= f.collection_select :order_status_id, OrderStatus.all, :id, :name, {}, class: "form-control", include_prompt: true %>
+	<% if order.errors[:order_status_id].present? %>
+    	<div class="error-message"><%=  order.errors[:order_status_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Vendor</label>
+	<%= f.text_field :vendor_id, class: "form-control" %>
+	<% if order.errors[:vendor_id].present? %>
+    	<div class="error-message"><%=  order.errors[:vendor_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Requistion Number</label>
+	<%= f.text_field :requistion_no, class: "form-control" %>
+	<% if order.errors[:requistion_no].present? %>
+    	<div class="error-message"><%=  order.errors[:requistion_no][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Tracking Number</label>
+	<%= f.text_field :tracking_no, class: "form-control" %>
+	<% if order.errors[:tracking_no].present? %>
+    	<div class="error-message"><%=  order.errors[:tracking_no][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Contact</label>
+	<%= f.text_field :contact_id, class: "form-control" %>
+	<% if order.errors[:contact_id].present? %>
+    	<div class="error-message"><%=  order.errors[:contact_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Excise Duty</label>
+	<%= f.text_field :excise_duty, class: "form-control" %>
+	<% if order.errors[:excise_duty].present? %>
+    	<div class="error-message"><%=  order.errors[:excise_duty][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Sales Commission</label>
+	<%= f.text_field :sales_com, class: "form-control" %>
+	<% if order.errors[:sales_com].present? %>
+    	<div class="error-message"><%=  order.errors[:sales_com][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Product</label>
+	<%= f.text_field :product_id, class: "form-control" %>
+	<% if order.errors[:product_id].present? %>
+    	<div class="error-message"><%=  order.errors[:product_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<%= f.submit "Save", class: "btn btn-warning" %>
+	<%= link_to "Back", purchase_orders_path , class: "btn btn-primary" %>
+</div>

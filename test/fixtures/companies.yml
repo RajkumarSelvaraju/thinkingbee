@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 
+  phone: 
+  city: 
+  state: 
+  country: 
+  time_zone: MyString
+
+two:
+  name: 
+  phone: 
+  city: 
+  state: 
+  country: 
+  time_zone: MyString

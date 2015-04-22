@@ -1,0 +1,60 @@
+<div class="form-group">
+	<label class="control-label">Name</label>
+	<%= f.text_field :name, class: "form-control" %>
+	<% if appointment.errors[:name].present? %>
+    	<div class="error-message"><%=  appointment.errors[:name][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Start Date & Time</label>
+	<%= f.datetime_select :start_date_time, class: "form-control", prompt: true %>
+	<% if appointment.errors[:start_date_time].present? %>
+    	<div class="error-message"><%=  appointment.errors[:start_date_time][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">End Date & Time</label>
+	<%= f.datetime_select :end_date_time, class: "form-control", prompt: true %>
+	<% if appointment.errors[:end_date_time].present? %>
+    	<div class="error-message"><%=  appointment.errors[:end_date_time][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Owner</label>
+	<%= f.collection_select :owner, User.all, :id, :email, {}, class: "form-control" %>
+	<% if appointment.errors[:owner].present? %>
+    	<div class="error-message"><%=  appointment.errors[:owner][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Regarding</label>
+	<%= f.collection_select :regarding, current_company.accounts.all, :id, :name, {}, class: "form-control" %>
+	<% if appointment.errors[:regarding].present? %>
+    	<div class="error-message"><%=  appointment.errors[:regarding][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Location</label>
+	<%= f.text_field :location, class: "form-control" %>
+	<% if appointment.errors[:location].present? %>
+    	<div class="error-message"><%=  appointment.errors[:location][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Lead Source</label>
+	<%= f.collection_select :appointment_type_id, AppointmentType.all, :id, :name, {}, class: "form-control" %>
+	<% if appointment.errors[:appointment_type_id].present? %>
+    	<div class="error-message"><%=  appointment.errors[:appointment_type_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Lead Source</label>
+	<%= f.collection_select :appointment_status_id, AppointmentStatus.all, :id, :name, {}, class: "form-control" %>
+	<% if appointment.errors[:appointment_status_id].present? %>
+    	<div class="error-message"><%=  appointment.errors[:appointment_status_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<%= f.submit "Save", class: "btn btn-warning" %>
+	<%= link_to "Back", appointments_path , class: "btn btn-primary" %>
+</div>

@@ -1,0 +1,88 @@
+<div class="form-group">
+	<label class="control-label">Product name</label>
+	<%= f.text_field :name, class: "form-control" %>
+	<% if product.errors[:name].present? %>
+    	<div class="error-message"><%=  product.errors[:name][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Owner</label>
+	<%= f.collection_select :owner, User.all, :id, :email, {prompt: true}, class: "form-control" %>
+	<% if product.errors[:owner].present? %>
+    	<div class="error-message"><%=  product.errors[:owner][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Product Code</label>
+	<%= f.text_field :code, class: "form-control" %>
+	<% if product.errors[:code].present? %>
+    	<div class="error-message"><%=  product.errors[:code][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Vendor</label>
+	<%= f.collection_select :vendor, current_company.vendors.all, :id, :name, {prompt: true} , class: "form-control" %>
+	<% if product.errors[:vendor].present? %>
+    	<div class="error-message"><%=  product.errors[:vendor][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Product Status</label>
+	<%= f.collection_select :product_status_id, ProductStatus.all, :id, :name, {prompt: true} , class: "form-control" %>
+	<% if product.errors[:product_status_id].present? %>
+    	<div class="error-message"><%=  product.errors[:product_status_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Product Category</label>
+	<%= f.collection_select :product_category_id, ProductCategory.all, :id, :name, {prompt: true}, class: "form-control" %>
+	<% if product.errors[:product_category_id].present? %>
+    	<div class="error-message"><%=  product.errors[:product_category_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Unit Price</label>
+	<%= f.text_field :unit_price, class: "form-control" %>
+	<% if product.errors[:unit_price].present? %>
+    	<div class="error-message"><%=  product.errors[:unit_price][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Commission Rate</label>
+	<%= f.text_field :com_rate, class: "form-control" %>
+	<% if product.errors[:com_rate].present? %>
+    	<div class="error-message"><%=  product.errors[:com_rate][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Tax</label>
+	<%= f.collection_select :tax_id, Tax.all, :id, :name, {prompt: true}, class: "form-control" %>
+	<% if product.errors[:tax_id].present? %>
+    	<div class="error-message"><%=  product.errors[:tax_id][0]%></div>
+   	<% end %>
+</div>
+	<div class="form-group">
+	<label class="control-label">Usage Unit</label>
+	<%= f.collection_select :usage_unit_id, UsageUnit.all, :id, :name, {prompt: true}, class: "form-control" %>
+	<% if product.errors[:usage_unit_id].present? %>
+    	<div class="error-message"><%=  product.errors[:usage_unit_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Quantity Ordered</label>
+	<%= f.text_field :qty_ordered, class: "form-control" %>
+	<% if product.errors[:qty_ordered].present? %>
+    	<div class="error-message"><%=  product.errors[:qty_ordered][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Quantity in Stock</label>
+	<%= f.text_field :qty_stock, class: "form-control" %>
+	<% if product.errors[:qty_stock].present? %>
+    	<div class="error-message"><%=  product.errors[:qty_stock][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<%= f.submit "Save", class: "btn btn-warning" %>
+	<%= link_to "Back", products_path , class: "btn btn-primary" %>
+</div>

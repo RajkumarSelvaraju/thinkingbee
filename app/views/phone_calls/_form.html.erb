@@ -1,0 +1,60 @@
+<div class="form-group">
+	<label class="control-label">Subject</label>
+	<%= f.text_field :name, class: "form-control" %>
+	<% if phone_call.errors[:name].present? %>
+    	<div class="error-message"><%=  phone_call.errors[:name][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Call From</label>
+	<%= f.text_field :call_form, class: "form-control" %>
+	<% if phone_call.errors[:call_form].present? %>
+    	<div class="error-message"><%=  phone_call.errors[:call_form][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Call To</label>
+	<%= f.text_field :call_to, class: "form-control" %>
+	<% if phone_call.errors[:call_to].present? %>
+    	<div class="error-message"><%=  phone_call.errors[:call_to][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	 <label class="control-label">Related To</label>
+	 <%= f.text_field :related_to, class: "form-control" %>
+	 <% if phone_call.errors[:related_to].present? %>
+    	<div class="error-message"><%=  phone_call.errors[:related_to][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Owner</label>
+	<%= f.collection_select :owner, User.all, :id, :email, {}, class: "form-control" %>
+	<% if phone_call.errors[:owner].present? %>
+    	<div class="error-message"><%=  phone_call.errors[:owner][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Call Type</label>
+	<%= f.collection_select :call_type_id, CallType.all, :id, :name, {}, class: "form-control" %>
+	<% if phone_call.errors[:call_type_id].present? %>
+    	<div class="error-message"><%=  phone_call.errors[:call_type_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Call Purpose</label>
+	<%= f.collection_select :call_purpose_id, CallPurpose.all, :id, :name, {}, class: "form-control" %>
+	<% if phone_call.errors[:call_purpose_id].present? %>
+    	<div class="error-message"><%=  phone_call.errors[:call_purpose_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Call Status</label>
+	<%= f.collection_select :call_status_id, CallStatus.all, :id, :name, {}, class: "form-control" %>
+	<% if phone_call.errors[:call_status_id].present? %>
+    	<div class="error-message"><%=  phone_call.errors[:call_status_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<%= f.submit "Save", class: "btn btn-warning" %>
+	<%= link_to "Back", phone_calls_path , class: "btn btn-primary" %>
+</div>

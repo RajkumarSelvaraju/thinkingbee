@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<title>Thinkingbee</title>
+  	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  	<%= csrf_meta_tags %>
+  	<link rel="stylesheet" type="text/css" href="/assets/csshive/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/csshive/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="/assets/csshive/fullcalendar.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/csshive/hive.css">
+	<!-- Loading JavaScript -->
+	<script type="text/javascript" src="/assets/jshive/moment.js"></script>
+	<script type="text/javascript" src="/assets/jshive/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/jshive/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/jshive/fullcalendar.min.js"></script>
+</head>
+<body>
+
+<!-- Header -->
+<%= render 'layouts/header' if user_signed_in? %>
+<%= render 'layouts/flash' if user_signed_in? %>
+<!-- Main Content -->
+<%= yield %>
+
+<!-- Footer -->
+<%= render 'layouts/footer' if user_signed_in? %>
+</body>
+</html>

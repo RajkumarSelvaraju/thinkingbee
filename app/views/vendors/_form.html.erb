@@ -1,0 +1,46 @@
+<div class="form-group">
+	<label class="control-label">Vendor Name</label>
+	<%= f.text_field :name, class: "form-control" %>
+	<% if vendor.errors[:name].present? %>
+    	<div class="error-message"><%=  vendor.errors[:name][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Owner</label>
+	<%= f.collection_select :owner, User.all, :id, :email, {}, class: "form-control" %>
+	<% if vendor.errors[:owner].present? %>
+    	<div class="error-message"><%=  vendor.errors[:owner][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Phone</label>
+	<%= f.text_field :phone, class: "form-control" %>
+	<% if vendor.errors[:phone].present? %>
+    	<div class="error-message"><%=  vendor.errors[:phone][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Email</label>
+	<%= f.email_field :email, class: "form-control" %>
+	<% if vendor.errors[:email].present? %>
+    	<div class="error-message"><%=  vendor.errors[:email][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Website</label>
+	<%= f.text_field :website, class: "form-control" %>
+	<% if vendor.errors[:website].present? %>
+    	<div class="error-message"><%=  vendor.errors[:website][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">GL Account</label>
+	<%= f.collection_select :gl_account_id, GlAccount.all, :id, :name, {}, class: "form-control" %>
+	<% if vendor.errors[:gl_account_id].present? %>
+    	<div class="error-message"><%=  vendor.errors[:gl_account_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<%= f.submit "Save", class: "btn btn-warning" %>
+	<%= link_to "Back", vendors_path , class: "btn btn-primary" %>
+</div>

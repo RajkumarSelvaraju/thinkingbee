@@ -1,0 +1,67 @@
+<div class="form-group">
+	<label class="control-label">Name</label>
+	<%= f.text_field :name, class: "form-control" %>
+	<% if account.errors[:name].present? %>
+    	<div class="error-message"><%=  account.errors[:name][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Owner</label>
+	<%= f.collection_select :owner, User.all, :id, :email, {}, class: "form-control" %>
+	<% if account.errors[:owner].present? %>
+    	<div class="error-message"><%=  account.errors[:owner][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Primary Contact</label>
+	<%= f.collection_select :primary_contact, User.all, :id, :email, {}, class: "form-control" %>
+	<% if account.errors[:primary_contact].present? %>
+    	<div class="error-message"><%=  account.errors[:primary_contact][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Parent Account</label>
+	<%= f.text_field :parent_account_id, class: "form-control" %>
+	<% if account.errors[:parent_account_id].present? %>
+    	<div class="error-message"><%=  account.errors[:parent_account_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Account No.</label>
+	<%= f.text_field :account_no, class: "form-control" %>
+	<% if account.errors[:account_no].present? %>
+    	<div class="error-message"><%=  account.errors[:account_no][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Rating</label>
+	<%= f.text_field :rating_id, class: "form-control" %>
+	<% if account.errors[:rating_id].present? %>
+    	<div class="error-message"><%=  account.errors[:rating_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Annual Income</label>
+	<%= f.text_field :annual_income, class: "form-control" %>
+	<% if account.errors[:annual_income].present? %>
+    	<div class="error-message"><%=  account.errors[:annual_income][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">SIC Code</label>
+	<%= f.text_field :sic_code, class: "form-control" %>
+	<% if account.errors[:sic_code].present? %>
+    	<div class="error-message"><%=  account.errors[:sic_code][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Primary Contact</label>
+	<%= f.collection_select :account_type_id, AccountType.all, :id, :name, {}, class: "form-control" %>
+	<% if account.errors[:account_type_id].present? %>
+    	<div class="error-message"><%=  account.errors[:account_type_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<%= f.submit "Save", class: "btn btn-warning" %>
+	<%= link_to "Back", accounts_path , class: "btn btn-primary" %>
+</div>

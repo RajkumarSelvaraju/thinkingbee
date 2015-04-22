@@ -1,0 +1,53 @@
+<div class="form-group">
+	<label class="control-label">Quote Subject</label>
+	<%= f.text_field :name, class: "form-control" %>
+	<% if quote.errors[:name].present? %>
+    	<div class="error-message"><%=  quote.errors[:name][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Owner</label>
+	<%= f.collection_select :owner, User.all, :id, :email, {}, class: "form-control" %>
+	<% if quote.errors[:owner].present? %>
+    	<div class="error-message"><%=  quote.errors[:owner][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Valid Till</label>
+	<%= f.date_select :valid_till, class: "form-control", prompt: true %>
+	<% if quote.errors[:valid_till].present? %>
+    	<div class="error-message"><%=  quote.errors[:valid_till][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Potential</label>
+	<%= f.text_field :potential_id, class: "form-control" %>
+	<% if quote.errors[:potential_id].present? %>
+    	<div class="error-message"><%=  quote.errors[:potential_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Contact</label>
+	<%= f.text_field :contact_id, class: "form-control" %>
+	<% if quote.errors[:contact_id].present? %>
+    	<div class="error-message"><%=  quote.errors[:contact_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Account</label>
+	<%= f.text_field :account_id, class: "form-control" %>
+	<% if quote.errors[:account_id].present? %>
+    	<div class="error-message"><%=  quote.errors[:account_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Quote Stage</label>
+	<%= f.collection_select :quote_stage_id, QuoteStage.all, :id, :name, {}, class: "form-control" %>
+	<% if quote.errors[:quote_stage_id].present? %>
+    	<div class="error-message"><%=  quote.errors[:quote_stage_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<%= f.submit "Save", class: "btn btn-warning" %>
+	<%= link_to "Back", quotes_path , class: "btn btn-primary" %>
+</div>

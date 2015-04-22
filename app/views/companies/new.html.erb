@@ -1,0 +1,52 @@
+<div class="container">
+  	<%#= devise_error_messages! %>
+  	<div class="signup-container">
+    	<div class="page-header text-left">
+      		<h1><small>Create an account</small></h1>
+    	</div>
+    	<%= form_for @company do |f| %>
+    		<div class="form-group">
+          <i class="fa fa-building-o"></i>
+    			<label class="control-label">Company</label>
+    			<%= f.text_field :name, class: "form-control" %>
+          <% if @company.errors[:name].present? %>
+            <div class="error-message"><%=  @company.errors[:name][0]%></div>
+          <% end %>
+    		</div>
+			<%= f.fields_for :users do |builder| %>
+				<div class="form-group">
+          <i class="fa fa-envelope"></i>
+					<label class="control-label">Email</label>
+					<%= builder.email_field :email, class: "form-control" %>
+				</div>
+				<div class="form-group">
+          <i class="fa fa-asterisk"></i>
+					<label class="control-label">Password</label>
+					<% if @validatable %>
+        				<em>(<%= @minimum_password_length %> characters minimum)</em>
+        			<% end %><br />
+        			<%= builder.password_field :password, autocomplete: "off", class: "form-control" %>
+				</div>
+				<div class="form-group">
+      				<i class="fa fa-asterisk"></i><i class="fa fa-asterisk"></i>
+        			<label class="control-label">Password Confirmation</label>
+        			<%= builder.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+      			</div>
+			<% end %>
+			<div class="form-group">
+        <i class="fa fa-phone"></i>
+				<label class="control-label">Phone</label>
+				<%= f.phone_field :phone, class: "form-control" %>
+        <% if @company.errors[:phone].present? %>
+          <div class="error-message"><%=  @company.errors[:phone][0]%></div>
+        <% end %>
+			</div>
+			<div class="form-group">
+				<%= f.submit "Sign up", class: "btn btn-warning" %>
+			</div>
+      <div class="form-group">
+        <a href="/users/sign_in">Already have an account?</a>
+      </div>
+    	<% end %>
+   </div>
+</div>

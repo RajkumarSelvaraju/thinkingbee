@@ -1,0 +1,60 @@
+<div class="form-group">
+	<label class="control-label">First name</label>
+	<%= f.text_field :f_name, class: "form-control" %>
+	<% if contact.errors[:f_name].present? %>
+    	<div class="error-message"><%=  contact.errors[:f_name][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Last name</label>
+	<%= f.text_field :l_name, class: "form-control" %>
+	<% if contact.errors[:l_name].present? %>
+    	<div class="error-message"><%=  contact.errors[:l_name][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Department</label>
+	<%= f.text_field :department, class: "form-control" %>
+	<% if contact.errors[:department].present? %>
+    	<div class="error-message"><%=  contact.errors[:department][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Company</label>
+	<%= f.text_field :company_name, class: "form-control" %>
+	<% if contact.errors[:company_name].present? %>
+    	<div class="error-message"><%=  contact.errors[:company_name][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Owner</label>
+	<%= f.collection_select :owner, User.all, :id, :email, {}, class: "form-control" %>
+	<% if contact.errors[:owner].present? %>
+    	<div class="error-message"><%=  contact.errors[:owner][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Lead Source</label>
+	<%= f.collection_select :lead_source_id, LeadSource.all, :id, :name, {}, class: "form-control" %>
+	<% if contact.errors[:lead_source_id].present? %>
+    	<div class="error-message"><%=  contact.errors[:lead_source_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Account</label>
+	<%= f.collection_select :account_id, current_company.accounts.all, :id, :name, {}, class: "form-control" %>
+	<% if contact.errors[:account_id].present? %>
+    	<div class="error-message"><%=  contact.errors[:account_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Vendor</label>
+	<%= f.collection_select :vendor_id, current_company.vendors.all, :id, :name, {}, class: "form-control" %>
+	<% if contact.errors[:vendor_id].present? %>
+    	<div class="error-message"><%=  contact.errors[:vendor_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<%= f.submit "Save", class: "btn btn-warning" %>
+	<%= link_to "Back", contacts_path , class: "btn btn-primary" %>
+</div>

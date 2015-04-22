@@ -1,0 +1,102 @@
+<div class="form-group">
+	<label class="control-label">cases Name</label>
+	<%= f.text_field :name, class: "form-control" %>
+	<% if cases.errors[:name].present? %>
+    	<div class="error-message"><%=  cases.errors[:name][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Owner</label>
+	<%= f.collection_select :owner, User.all, :id, :email, {prompt: true}, class: "form-control" %>
+	<% if cases.errors[:owner].present? %>
+    	<div class="error-message"><%=  cases.errors[:owner][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">cases Status</label>
+	<%= f.collection_select :cases_status_id, casesStatus.all, :id, :name, {prompt: true}, class: "form-control", include_prompt: true %>
+	<% if cases.errors[:cases_status_id].present? %>
+    	<div class="error-message"><%=  cases.errors[:cases_status_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">cases Type</label>
+	<%= f.collection_select :cases_type_id, casesType.all, :id, :name, {prompt: true}, class: "form-control", include_prompt: true %>
+	<% if cases.errors[:cases_type_id].present? %>
+    	<div class="error-message"><%=  cases.errors[:cases_type_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">cases Origin</label>
+	<%= f.collection_select :cases_origin_id, casesOrigin.all, :id, :name, {prompt: true}, class: "form-control", include_prompt: true %>
+	<% if cases.errors[:cases_origin_id].present? %>
+    	<div class="error-message"><%=  cases.errors[:cases_origin_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">cases Reason</label>
+	<%= f.collection_select :cases_reason_id, casesReason.all, :id, :name, {prompt: true}, class: "form-control", include_prompt: true %>
+	<% if cases.errors[:cases_reason_id].present? %>
+    	<div class="error-message"><%=  cases.errors[:cases_reason_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Priority</label>
+	<%= f.collection_select :priority_id, Priority.all, :id, :name, {prompt: true}, class: "form-control" %>
+	<% if cases.errors[:priority_id].present? %>
+    	<div class="error-message"><%=  cases.errors[:priority_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Related To</label>
+	<%= f.text_field :contact_id, class: "form-control" %>
+	<% if cases.errors[:contact_id].present? %>
+    	<div class="error-message"><%=  cases.errors[:contact_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Product</label>
+	<%= f.text_field :product_id, class: "form-control" %>
+	<% if cases.errors[:product_id].present? %>
+    	<div class="error-message"><%=  cases.errors[:product_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Account</label>
+	<%= f.text_field :account_id, class: "form-control" %>
+	<% if cases.errors[:account_id].present? %>
+    	<div class="error-message"><%=  cases.errors[:account_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Reported By</label>
+	<%= f.text_field :reported_by, class: "form-control" %>
+	<% if cases.errors[:reported_by].present? %>
+    	<div class="error-message"><%=  cases.errors[:reported_by][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Comments</label>
+	<%= f.text_area :comments, class: "form-control" %>
+	<% if cases.errors[:comments].present? %>
+    	<div class="error-message"><%=  cases.errors[:comments][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Phone</label>
+	<%= f.phone_field :phone, class: "form-control" %>
+	<% if cases.errors[:phone].present? %>
+    	<div class="error-message"><%=  cases.errors[:phone][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Email</label>
+	<%= f.email_field :email, class: "form-control" %>
+	<% if cases.errors[:email].present? %>
+    	<div class="error-message"><%=  cases.errors[:email][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<%= f.submit "Save", class: "btn btn-warning" %>
+	<%= link_to "Back", cases_path , class: "btn btn-primary" %>
+</div>

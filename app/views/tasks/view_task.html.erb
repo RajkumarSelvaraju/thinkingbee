@@ -1,0 +1,18 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+  <h4 class="modal-title" id="myModalLabel">Task Information</h4>
+</div>
+<div class="modal-body">
+	<div class="form-group">
+		<label>Title</label>
+		<p><%= @task.name %></p>
+	</div>
+	<div class="form-group">
+		<label>Due Date</label>
+		<p><%= @task.due_date %></p>
+	</div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+  <%= link_to "Edit", edit_task_path(@task), class: "btn btn-warning" %>
+</div>

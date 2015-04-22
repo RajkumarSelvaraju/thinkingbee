@@ -1,0 +1,95 @@
+<div class="form-group">
+	<label class="control-label">Name</label>
+	<%= f.text_field :name, class: "form-control" %>
+	<% if potential.errors[:name].present? %>
+    	<div class="error-message"><%=  potential.errors[:name][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Amount</label>
+	<%= f.text_field :amount, class: "form-control" %>
+	<% if potential.errors[:amount].present? %>
+    	<div class="error-message"><%=  potential.errors[:amount][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Contact</label>
+	<%= f.collection_select :contact_id, current_company.contacts.all, :id, :name, {}, class: "form-control" %>
+	<% if potential.errors[:contact_id].present? %>
+    	<div class="error-message"><%=  potential.errors[:contact_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Closing Date</label>
+	<%= f.date_select :closing_date, class: "form-control", prompt: true %>
+	<% if potential.errors[:closing_date].present? %>
+    	<div class="error-message"><%=  potential.errors[:closing_date][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Account</label>
+	<%= f.collection_select :account_id, current_company.contacts.all, :id, :name, {}, class: "form-control" %>
+	<% if potential.errors[:account_id].present? %>
+    	<div class="error-message"><%=  potential.errors[:account_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Owner</label>
+	<%= f.collection_select :owner, User.all, :id, :email, {}, class: "form-control" %>
+	<% if potential.errors[:owner].present? %>
+    	<div class="error-message"><%=  potential.errors[:owner][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Potential Stage</label>
+	<%= f.collection_select :potential_stage_id, PotentialStage.all, :id, :name, {}, class: "form-control" %>
+	<% if potential.errors[:potential_stage_id].present? %>
+    	<div class="error-message"><%=  potential.errors[:potential_stage_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Potential Type</label>
+	<%= f.collection_select :potential_type_id, PotentialType.all, :id, :name, {}, class: "form-control" %>
+	<% if potential.errors[:potential_type_id].present? %>
+    	<div class="error-message"><%=  potential.errors[:potential_type_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Probability</label>
+	<%= f.text_field :probability, class: "form-control" %>
+	<% if potential.errors[:probability].present? %>
+    	<div class="error-message"><%=  potential.errors[:probability][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Next Step</label>
+	<%= f.text_field :next_step, class: "form-control" %>
+	<% if potential.errors[:next_step].present? %>
+    	<div class="error-message"><%=  potential.errors[:next_step][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Expected Revenue</label>
+	<%= f.text_field :expected_revenue, class: "form-control" %>
+	<% if potential.errors[:expected_revenue].present? %>
+    	<div class="error-message"><%=  potential.errors[:expected_revenue][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Campaigns</label>
+	<%= f.collection_select :campaign_id, current_company.campaigns.all, :id, :name, {}, class: "form-control" %>
+	<% if potential.errors[:campaign_id].present? %>
+    	<div class="error-message"><%=  potential.errors[:campaign_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<label class="control-label">Lead Source</label>
+	<%= f.collection_select :lead_source_id, LeadSource.all, :id, :name, {}, class: "form-control" %>
+	<% if potential.errors[:lead_source_id].present? %>
+    	<div class="error-message"><%=  potential.errors[:lead_source_id][0]%></div>
+   	<% end %>
+</div>
+<div class="form-group">
+	<%= f.submit "Save", class: "btn btn-warning" %>
+	<%= link_to "Back", potentials_path , class: "btn btn-primary" %>
+</div>

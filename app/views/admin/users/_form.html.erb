@@ -1,0 +1,43 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-10">
+			<div class="page-header">
+				<h1><small>New User</small></h1>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+	<div class="row">
+		<div class="col-lg-6">
+			<%= semantic_form_for @user, :url => new_admin_user_path, :method => :post do |f| %>
+				<div class="form-group">
+					<label>Email</label>
+					<%= f.text_field :email , class: "form-control"%>
+					<% if @user.errors[:email].present? %>
+		                <div class="error-message"><%=  @user.errors[:email][0]%></div>
+		            <% end %>	
+				</div>
+
+				<div class="form-group">
+					<label>Password</label>
+					<%= f.password_field :password, class: "form-control" %>
+					<% if @user.errors[:password].present? %>
+		                <div class="error-message"><%=  @user.errors[:password][0]%></div>
+		            <% end %>
+				</div>
+				<div class="form-group">
+					<label>Password Confirmation</label>
+					<%= f.password_field :password_confirmation, class: "form-control" %>
+					<% if @user.errors[:password_confirmation].present? %>
+		                <div class="error-message"><%=  @user.errors[:password_confirmation][0]%></div>
+		            <% end %>
+				</div>
+				<div class="form-group">
+					<%= f.submit "Add", class: "btn btn-warning" %>
+					<%= link_to "Cancel", :back, class: "btn btn-primary" %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
+</div>
